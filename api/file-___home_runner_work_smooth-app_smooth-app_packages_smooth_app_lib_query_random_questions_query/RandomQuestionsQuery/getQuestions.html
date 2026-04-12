@@ -77,10 +77,13 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
 ) async {
   final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
     ProductQuery.getLanguage(),
+    deviceId: OpenFoodAPIConfiguration.uuid,
     user: ProductQuery.getReadUser(),
     countries: &lt;OpenFoodFactsCountry&gt;[ProductQuery.getCountry()],
     count: count,
     questionOrder: RobotoffQuestionOrder.popularity,
+    serverType: ServerType.openFoodFacts,
+    uriHelper: ProductQuery.uriRobotoffHelper,
   );
 
   if (result.questions?.isNotEmpty != true) {
@@ -92,12 +95,14 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
       barcodes.add(question.barcode!);
     }
   }
-  await ProductRefresher().silentFetchAndRefreshList(
-    barcodes: barcodes,
-    localDatabase: localDatabase,
-    productType: ProductType.food,
-  );
-  return result.questions ?? &lt;RobotoffQuestion&gt;[];
+  if (barcodes.isNotEmpty) {
+    await ProductRefresher().silentFetchAndRefreshList(
+      barcodes: barcodes,
+      localDatabase: localDatabase,
+      productType: ProductType.food,
+    );
+  }
+  return result.questions!;
 }</code></pre>
 </section>
 
