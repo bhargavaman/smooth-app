@@ -85,9 +85,8 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
     final User user = getUser();
 
     Future&lt;Status&gt; addImage({
-      required int compressionPct,
       required bool force,
-      int? maxSize,
+      required int maxSize,
     }) async {
       cropResult = await cropIfNeeded(
         fullPath: fullPath,
@@ -96,7 +95,6 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        compressQuality: compressionPct,
         forceCompression: force,
         eraserCoordinates: eraserCoordinates,
         maxSize: maxSize,
@@ -121,14 +119,16 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
 
     Status status;
     try {
-      status = await addImage(compressionPct: 100, force: false);
+      status = await addImage(
+        force: false,
+        maxSize: ImagePickerConstants.maxSize.toInt(),
+      );
     } catch (e) {
       if (e.toString().contains(&#39;413&#39;) ||
           e.toString().contains(&#39;Request Entity Too Large&#39;)) {
         status = await addImage(
-          compressionPct: 80,
           force: true,
-          maxSize: 2000,
+          maxSize: ImagePickerConstants.maxSizeFallback.toInt(),
         );
       } else {
         rethrow;
@@ -142,6 +142,11 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
     if (status.status == &#39;status not ok&#39; &amp;&amp; imageId != null) {
       &#47;&#47; The very same image was already uploaded and therefore was rejected.
       &#47;&#47; We just have to select this image, with no angle.
+      if (imageField == ImageField.OTHER) {
+        &#47;&#47; we&#39;re done here: all we wanted was to have the image uploaded, and
+        &#47;&#47; it is. And the server rejects &quot;set as&quot; operation for OTHER images.
+        return;
+      }
       final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
         barcode: barcode,
         imageField: imageField,
