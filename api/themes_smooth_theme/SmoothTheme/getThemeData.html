@@ -54,7 +54,7 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span>
+<span class="returntype"><a href="https://pub.dev/documentation/material_ui/1.11.1/material_ui/ThemeData-class.html">ThemeData</a></span>
 <span class="name ">getThemeData</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getThemeData-param-brightness"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Brightness.html">Brightness</a></span> <span class="parameter-name">brightness</span>, </span></li>
 <li><span class="parameter" id="getThemeData-param-themeProvider"><span class="type-annotation"><a href="../../themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></span> <span class="parameter-name">themeProvider</span>, </span></li>
 <li><span class="parameter" id="getThemeData-param-colorProvider"><span class="type-annotation"><a href="../../themes_color_provider/ColorProvider-class.html">ColorProvider</a></span> <span class="parameter-name">colorProvider</span>(), </span></li>
@@ -71,10 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static ThemeData getThemeData(
-  final Brightness brightness,
-  final ThemeProvider themeProvider,
-  final ColorProvider Function() colorProvider,
-  final TextContrastProvider Function() textContrastProvider,
+  Brightness brightness,
+  ThemeProvider themeProvider,
+  ColorProvider Function() colorProvider,
+  TextContrastProvider Function() textContrastProvider,
 ) {
   final bool lightTheme = brightness == Brightness.light;
   ColorScheme myColorScheme;
@@ -107,7 +107,7 @@
 
   return ThemeData(
     fontFamily: &#39;OpenSans&#39;,
-    primaryColor: DARK_BROWN_COLOR,
+    primaryColor: smoothExtension.primaryBlack,
     extensions: &lt;ThemeExtension&lt;dynamic&gt;&gt;[smoothExtension],
     colorScheme: myColorScheme,
     canvasColor: themeProvider.currentTheme == THEME_AMOLED

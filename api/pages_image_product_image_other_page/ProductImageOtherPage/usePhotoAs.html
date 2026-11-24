@@ -56,9 +56,9 @@
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../pages_image_product_image_other_page/ProductImagePageResult-class.html">ProductImagePageResult</a>?</span>&gt;</span></span>
 <span class="name ">usePhotoAs</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="usePhotoAs-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
-<li><span class="parameter" id="usePhotoAs-param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="usePhotoAs-param-language"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span>, </span></li>
-<li><span class="parameter" id="usePhotoAs-param-productImage"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ProductImage-class.html">ProductImage</a></span> <span class="parameter-name">productImage</span>, </span></li>
+<li><span class="parameter" id="usePhotoAs-param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="usePhotoAs-param-language"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span>, </span></li>
+<li><span class="parameter" id="usePhotoAs-param-productImage"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/ProductImage-class.html">ProductImage</a></span> <span class="parameter-name">productImage</span>, </span></li>
 </ol>})
 
       
@@ -71,10 +71,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;ProductImagePageResult?&gt; usePhotoAs({
-  required final BuildContext context,
-  required final Product product,
-  required final OpenFoodFactsLanguage language,
-  required final ProductImage productImage,
+  required BuildContext context,
+  required Product product,
+  required OpenFoodFactsLanguage language,
+  required ProductImage productImage,
 }) async {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final SmoothColorsThemeExtension extension = context
@@ -102,7 +102,7 @@
     ),
     padding: const EdgeInsetsDirectional.only(start: 15.0, end: 19.0),
     labels: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           return switch (imageField) {
             ImageField.FRONT =&gt; appLocalizations.photo_field_front,
             ImageField.INGREDIENTS =&gt;
@@ -115,7 +115,7 @@
         .toList(growable: false),
     values: imageFields,
     prefixIcons: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           return switch (imageField) {
             ImageField.FRONT =&gt; const icons.Milk.happy(),
             ImageField.INGREDIENTS =&gt; const icons.Ingredients.alt(),
@@ -126,7 +126,7 @@
         })
         .toList(growable: false),
     suffixIcons: imageFields
-        .map((final ImageField imageField) {
+        .map((ImageField imageField) {
           final bool exists = TransientFile.fromProduct(
             product,
             imageField,

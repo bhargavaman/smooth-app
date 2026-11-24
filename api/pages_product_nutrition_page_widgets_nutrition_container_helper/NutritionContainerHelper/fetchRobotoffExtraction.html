@@ -55,7 +55,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>&gt;</span></span>
-<span class="name ">fetchRobotoffExtraction</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="fetchRobotoffExtraction-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span></li>
+<span class="name ">fetchRobotoffExtraction</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="fetchRobotoffExtraction-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span></li>
 </ol>)
 
       
@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; fetchRobotoffExtraction(final Product product) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;bool&gt; fetchRobotoffExtraction(Product product) async {
   if (product.barcode == null) {
     return false;
   }
@@ -100,7 +100,7 @@
     for (final String nutrientOffTag in extractedNutrients) {
       &#47;&#47; If the nutrient is not in the list of nutrients, we add it
       final OrderedNutrient? missingNutrient = getLeftoverNutrients()
-          .firstWhereOrNull((final OrderedNutrient orderedNutrient) {
+          .firstWhereOrNull((OrderedNutrient orderedNutrient) {
             return orderedNutrient.nutrient?.offTag == nutrientOffTag;
           });
 

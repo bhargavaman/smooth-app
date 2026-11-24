@@ -56,9 +56,9 @@
       
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
 <span class="name ">addTask</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="addTask-param-barcode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>, {</span></li>
-<li><span class="parameter" id="addTask-param-productType"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ProductType.html">ProductType</a>?</span> <span class="parameter-name">productType</span>, </span></li>
-<li><span class="parameter" id="addTask-param-language"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span>, </span></li>
-<li><span class="parameter" id="addTask-param-imageField"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ImageField.html">ImageField</a></span> <span class="parameter-name">imageField</span>, </span></li>
+<li><span class="parameter" id="addTask-param-productType"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/ProductType.html">ProductType</a>?</span> <span class="parameter-name">productType</span>, </span></li>
+<li><span class="parameter" id="addTask-param-language"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span>, </span></li>
+<li><span class="parameter" id="addTask-param-imageField"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/ImageField.html">ImageField</a></span> <span class="parameter-name">imageField</span>, </span></li>
 <li><span class="parameter" id="addTask-param-croppedFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">croppedFile</span>, </span></li>
 <li><span class="parameter" id="addTask-param-rotation"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">rotation</span>, </span></li>
 <li><span class="parameter" id="addTask-param-x1"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">x1</span>, </span></li>
@@ -82,18 +82,18 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; addTask(
-  final String barcode, {
-  required final ProductType? productType,
-  required final OpenFoodFactsLanguage language,
-  required final ImageField imageField,
-  required final File croppedFile,
-  required final int rotation,
-  required final int x1,
-  required final int y1,
-  required final int x2,
-  required final int y2,
-  required final List&lt;double&gt; eraserCoordinates,
-  required final BuildContext context,
+  String barcode, {
+  required ProductType? productType,
+  required OpenFoodFactsLanguage language,
+  required ImageField imageField,
+  required File croppedFile,
+  required int rotation,
+  required int x1,
+  required int y1,
+  required int x2,
+  required int y2,
+  required List&lt;double&gt; eraserCoordinates,
+  required BuildContext context,
 }) async {
   if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
     return;

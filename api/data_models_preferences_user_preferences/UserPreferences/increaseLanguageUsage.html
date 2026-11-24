@@ -55,7 +55,7 @@
     <section class="multi-line-signature">
       
 <span class="returntype">void</span>
-<span class="name ">increaseLanguageUsage</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="increaseLanguageUsage-param-language"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span></span></li>
+<span class="name ">increaseLanguageUsage</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="increaseLanguageUsage-param-language"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span></span></li>
 </ol>)
 
       
@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void increaseLanguageUsage(final OpenFoodFactsLanguage language) {
+  <pre class="language-dart"><code class="language-dart">void increaseLanguageUsage(OpenFoodFactsLanguage language) {
   final String? usage = _sharedPreferences.getString(_TAG_LANGUAGES_USAGE);
   final Map&lt;String, int&gt; languages;
   if (usage == null || usage.isEmpty) {

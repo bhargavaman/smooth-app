@@ -54,7 +54,7 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span>
 <span class="name ">getChangedMultilingualText</span>(<wbr>)
 
       
@@ -79,7 +79,7 @@
       &lt;OpenFoodFactsLanguage, String&gt;{};
 
   &#47;&#47; setting new names, comparing them to old names for change flag.
-  void setNewName(final OpenFoodFactsLanguage language) {
+  void setNewName(OpenFoodFactsLanguage language) {
     final String newName = getCleanText(_currentMultilingualTexts[language]);
     final String oldName = getCleanText(_initialMultilingualTexts[language]);
     if (newName != oldName) {

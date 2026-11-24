@@ -60,7 +60,7 @@
     </ol>
   </div>
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span>
-<span class="name ">initTerms</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="initTerms-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span></li>
+<span class="name ">initTerms</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="initTerms-param-product"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span></span></li>
 </ol>)
 
       <div class="features"><span class="feature">override</span></div>
@@ -78,7 +78,7 @@ cf. <a href="https://github.com/openfoodfacts/smooth-app/issues/3529">https://gi
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
-List&lt;String&gt; initTerms(final Product product) =&gt;
+List&lt;String&gt; initTerms(Product product) =&gt;
     product.tracesTagsInLanguages?[getLanguage()] ?? &lt;String&gt;[];</code></pre>
 </section>
 

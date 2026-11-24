@@ -54,7 +54,7 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Currency.html">Currency</a></span>
+<span class="returntype"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Currency.html">Currency</a></span>
 <span class="name ">getSelected</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getSelected-param-code"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">code</span></span></li>
 </ol>)
 
@@ -67,15 +67,15 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Currency getSelected(final String? code) {
+  <pre class="language-dart"><code class="language-dart">Currency getSelected(String? code) {
   if (code != null) {
-    for (final Currency currency in _currencyList) {
+    for (final Currency currency in Currency.values) {
       if (currency.name == code) {
         return currency;
       }
     }
   }
-  return _currencyList[0];
+  return Currency.values.first;
 }</code></pre>
 </section>
 

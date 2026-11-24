@@ -55,9 +55,9 @@
     <section class="multi-line-signature">
       
 <span class="returntype">void</span>
-<span class="name ">loadLanguages</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="loadLanguages-param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
-<li><span class="parameter" id="loadLanguages-param-imageField"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ImageField.html">ImageField</a>?</span> <span class="parameter-name">imageField</span>, </span></li>
-<li><span class="parameter" id="loadLanguages-param-userLanguage"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span> <span class="parameter-name">userLanguage</span>, </span></li>
+<span class="name ">loadLanguages</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="loadLanguages-param-product"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/Product-class.html">Product</a></span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="loadLanguages-param-imageField"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/ImageField.html">ImageField</a>?</span> <span class="parameter-name">imageField</span>, </span></li>
+<li><span class="parameter" id="loadLanguages-param-userLanguage"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.32.0/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a>?</span> <span class="parameter-name">userLanguage</span>, </span></li>
 </ol>})
 
       
@@ -70,8 +70,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">void loadLanguages({
-  required final Product product,
-  final ImageField? imageField,
+  required Product product,
+  ImageField? imageField,
   OpenFoodFactsLanguage? userLanguage,
 }) {
   final Map&lt;OpenFoodFactsLanguage, String&gt; localizedNames =
@@ -98,7 +98,7 @@
       if (image.field == imageField) {
         if (image.language != null &amp;&amp;
             !productNames.any(
-              (final _EditingProductName productName) =&gt;
+              (_EditingProductName productName) =&gt;
                   productName.language == image.language,
             )) {
           final OpenFoodFactsLanguage language = image.language!;
@@ -130,8 +130,7 @@
   &#47;&#47;&#47; Add existing languages without photo
   for (final OpenFoodFactsLanguage language in localizedNames.keys) {
     if (!productNames.any(
-      (final _EditingProductName productName) =&gt;
-          productName.language == language,
+      (_EditingProductName productName) =&gt; productName.language == language,
     )) {
       productNames.add(
         _EditingProductName.initial(
@@ -147,7 +146,7 @@
   &#47;&#47;&#47; Add user language
   if (userLanguage != null) {
     if (!productNames.any(
-      (final _EditingProductName productName) =&gt;
+      (_EditingProductName productName) =&gt;
           productName.language == userLanguage,
     )) {
       productNames.add(
